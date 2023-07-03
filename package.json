@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon server/app.ts"
   },
   "keywords": [],
   "author": "",
@@ -14,5 +14,9 @@
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "pg": "^8.11.1"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.10.2",
+    "nodemon": "^2.0.22"
   }
 }
