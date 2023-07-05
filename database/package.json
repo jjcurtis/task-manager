@@ -1,0 +1,13 @@
+{
+  "name": "cockroach-db",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "pg": "^8.11.1"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.10.2"
+  }
+}
