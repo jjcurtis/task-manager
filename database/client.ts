@@ -29,3 +29,15 @@ export async function postTodo(todo: ITodo) {
     console.error(error);
   }
 }
+
+export async function deleteTodo(todo: ITodo) {
+  const client = new Client(process.env.DATABASE_URL);
+  await client.connect();
+  try {
+    await client.query(
+      'DELETE FROM todos WHERE id = $1', [todo.id]
+    )
+  } catch (error) {
+    console.error(error)
+  }
+}
