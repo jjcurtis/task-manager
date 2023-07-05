@@ -12,7 +12,7 @@ export default function Header() {
 
   return (
     <header className="flex justify-between items-center bg-slate-400 text-4xl px-8 py-4 shadow-white shadow-md">
-      <h1 className="font-semibold">Todo List</h1>
+      <h1 className="font-semibold">Task Manager</h1>
       {showMenu && (
         <nav>
           <ul className="flex gap-8 text-2xl">
