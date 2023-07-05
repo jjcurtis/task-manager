@@ -18,7 +18,7 @@ export default function TodoDeadline({ todo
             <span className="font-semibold">
               {getTime(todo.deadline)}
             </span>
-            <button className='opacity-40 hover:opacity-100 focus:opacity-100'>
+            <button className='opacity-40 hover:opacity-100 hover:scale-110 focus:opacity-100'>
               <img src={EditIcon} alt="edit button" />
             </button>
           </div>;
