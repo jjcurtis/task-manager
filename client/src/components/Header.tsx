@@ -17,7 +17,7 @@ export default function Header() {
         <nav>
           <ul className="flex gap-8 text-2xl">
             <li className='hover:text-slate-50 transition-colors'>
-              <button onClick={handleClick}>Create New Task</button>
+              <button onClick={handleClick}>New Task</button>
             </li>
           </ul>
         </nav>

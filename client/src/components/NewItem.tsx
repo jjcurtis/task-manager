@@ -27,7 +27,7 @@ export default function NewItem() {
 
   return (
     <form
-      className="flex gap-1 flex-col sm:w-2/3 md:w-1/2 lg:w-1/3 border-2 border-slate-400 p-8 mx-auto mt-8 text-lg"
+      className="flex gap-1 flex-col sm:w-2/3 md:w-1/2 lg:w-1/3 border-2 border-slate-400 p-8 mx-8 sm:mx-auto mt-8 text-lg"
       onSubmit={handleSubmit}
     >
       <label htmlFor="task">Task Name</label>
