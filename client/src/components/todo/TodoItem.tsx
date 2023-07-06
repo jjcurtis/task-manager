@@ -9,6 +9,7 @@ export default function TodoItem({ ...todo }: ITodo) {
   const [wait, setWait] = useState(false);
 
   useEffect(() => {
+    // Allow a brief delay before disappearing
     if (wait === true) {
       setTimeout(() => {
         setChecked(true);

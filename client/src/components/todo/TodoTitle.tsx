@@ -15,6 +15,7 @@ export default function TodoTitle({
   const [updateTitle, setUpdateTitle] = useState(false);
 
   function handleClick() {
+    // Doesn't fetch if title isn't updated
     if (updateTitle === true && title !== todo.task) {
       fetch('http://localhost:3000/api/todos', {
         method: 'PUT',
