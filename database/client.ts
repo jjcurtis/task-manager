@@ -53,3 +53,15 @@ export async function updateTodoTask(todo: ITodo) {
     console.error(error)
   }
 }
+
+export async function updateTodoDeadlines(todo: ITodo) {
+  const client = new Client(process.env.DATABASE_URL);
+  await client.connect();
+  try {
+    await client.query(
+      'UPDATE todos SET due = $1, deadline = $2 WHERE id = $3', [todo.due, todo.deadline, todo.id]
+    )
+  } catch (error) {
+    console.error(error)
+  }
+}
