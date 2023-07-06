@@ -3,7 +3,7 @@ export default function getTime(date: string) {
   const minute: string = date.slice(3, 5)
   const cycle: string = hour.charAt(0) === '0' ? 'AM' : 'PM'
 
-  if (cycle === 'PM' && hour !== '12') {
+  if (cycle === 'PM' && parseInt(hour) > 12) {
     hour = `${parseInt(hour) - 12}`
   }
 
