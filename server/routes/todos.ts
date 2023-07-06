@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { readTodos, postTodo, deleteTodo, updateTodoTask } from '../../database/client'
+import { readTodos, postTodo, deleteTodo, updateTodoTask, updateTodoDeadlines } from '../../database/client'
 const router = Router();
 
 router.get('/', async (req, res) => {
@@ -21,6 +21,12 @@ router.delete('/', async (req, res) => {
 
 router.put('/', async (req, res) => {
   await updateTodoTask(req.body);
+  const todos = await readTodos();
+  res.json(todos);
+})
+
+router.put('/deadline', async (req, res) => {
+  await updateTodoDeadlines(req.body);
   const todos = await readTodos();
   res.json(todos);
 })
