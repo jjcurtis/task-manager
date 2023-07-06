@@ -1,5 +1,6 @@
+import { ChangeEvent, useState } from 'react';
 import { ITodo } from '../../interfaces/ITodo';
-import EditIcon from '../../assets/icons8-edit.svg'
+import EditIcon from '../../assets/icons8-edit.svg';
 
 type Props = {
   handleChange: () => void;
@@ -10,6 +11,24 @@ export default function TodoTitle({
   handleChange,
   todo,
 }: Props) {
+  const [title, setTitle] = useState(todo.task);
+  const [updateTitle, setUpdateTitle] = useState(false);
+
+  function handleClick() {
+    if (updateTitle === true && title !== todo.task) {
+      fetch('http://localhost:3000/api/todos', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...todo, task: title }),
+      });
+    }
+    setUpdateTitle(updateTitle => !updateTitle);
+  }
+
+  function handleTitle(e: ChangeEvent<HTMLInputElement>) {
+    setTitle(e.target.value);
+  }
+
   return (
     <div className="flex gap-2 items-center">
       <input
@@ -18,8 +37,22 @@ export default function TodoTitle({
         type="checkbox"
         onChange={handleChange}
       />
-      <h2 className="text-2xl font-medium">{todo.task}</h2>
-      <button className="opacity-40 hover:opacity-100 hover:scale-110 focus:opacity-100">
+      {updateTitle ? (
+        <input
+          className="text-2xl font-medium"
+          type="text"
+          name="title"
+          id="title"
+          onChange={handleTitle}
+          value={title}
+        />
+      ) : (
+        <h2 className="text-2xl font-medium">{title}</h2>
+      )}
+      <button
+        onClick={handleClick}
+        className="opacity-40 hover:opacity-100 hover:scale-110 active:opacity-100"
+      >
         <img src={EditIcon} alt="edit button" />
       </button>
     </div>
