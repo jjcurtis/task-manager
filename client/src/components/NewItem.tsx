@@ -1,12 +1,13 @@
 import { FormEvent, useContext, useRef } from 'react';
 import { TaskContext } from '../App';
 import { ITodo } from '../interfaces/ITodo';
+import getPreviousDay from '../functions/getPreviousDay';
 
 export default function NewItem() {
   const setShowNewTask = useContext(TaskContext);
   const taskRef = useRef<HTMLInputElement>(null);
-  const dueDayRef = useRef<HTMLInputElement>(null)
-  const dueTimeRef = useRef<HTMLInputElement>(null)
+  const dueDayRef = useRef<HTMLInputElement>(null);
+  const dueTimeRef = useRef<HTMLInputElement>(null);
 
   function handleSubmit(e: FormEvent) {
     const todo: ITodo = {
@@ -14,14 +15,14 @@ export default function NewItem() {
       completed: false,
       due: dueDayRef.current!.value,
       deadline: dueTimeRef.current!.value,
-    }
+    };
 
-    e.preventDefault()
+    e.preventDefault();
     fetch('http://localhost:3000/api/todos', {
       method: 'POST',
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify(todo)
-    })
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(todo),
+    });
     setShowNewTask!(false);
   }
 
@@ -32,35 +33,32 @@ export default function NewItem() {
     >
       <label htmlFor="task">Task Name</label>
       <input
-        className="border-2 border-slate-400 px-1"
+        className= "border-2 border-slate-400 px-1 invalid:text-red-500 valid:text-green-600"
         type="text"
-        name='task'
+        name="task"
         id="task"
         ref={taskRef}
+        spellCheck="true"
+        minLength={5}
+        required
       />
       <label htmlFor="dueDay">Due By Date</label>
       <input
         className="border-2 border-slate-400 px-1"
         type="date"
-        name='dueDay'
+        name="dueDay"
         id="dueDay"
-        placeholder={`${new Date(
-          new Date().getFullYear(),
-          new Date().getMonth(),
-          new Date().getDate()
-        )}`}
+        // Cant set a past due date
+        min={getPreviousDay()}
+        //
         ref={dueDayRef}
       />
       <label htmlFor="dueTime">Due At</label>
       <input
-        className="border-2 border-slate-400 px-1"
+        className="border-2 border-slate-400 px-1 invalid:text-red-500 valid:text-green-600"
         type="time"
-        name='dueTime'
+        name="dueTime"
         id="dueTime"
-        placeholder={`${new Date(
-          new Date().getHours(),
-          new Date().getMinutes()
-        )}`}
         ref={dueTimeRef}
       />
       <button
