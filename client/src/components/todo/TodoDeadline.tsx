@@ -3,6 +3,7 @@ import getTime from '../../functions/getTime';
 import EditIcon from '../../assets/icons8-edit.svg';
 import { ITodo } from '../../interfaces/ITodo';
 import { ChangeEvent, MouseEvent, useState } from 'react';
+import getPreviousDay from '../../functions/getPreviousDay';
 
 type Props = {
   todo: ITodo;
@@ -53,6 +54,7 @@ export default function TodoDeadline({ todo }: Props) {
             id="date"
             value={date}
             onChange={handleDate}
+            min={getPreviousDay()}
           />
         ) : (
           formatDate(date)
