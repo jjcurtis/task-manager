@@ -1,5 +1,11 @@
 # Task Manager
 
+## Info
+
+Task Manager is a full stack application that utilizes a React front-end with an Express API. The application's PostgresQL database is stored in a cloud cluster provided by **[CockroachDB](https://www.cockroachlabs.com/product/)**. 
+
+For the easiest installation and integration with your environment, set up your user account **[here](https://cockroachlabs.cloud/signup)**, create your own cluster, and choose the ***NodeJS driver***. This application uses the free tier **Serverless** Plan.   
+
 ## Getting Started
 
 **Make a directory and switch into it**
@@ -24,12 +30,15 @@ cd ..;
 cd database && npm i;
 ```
 
-**Add your own environment variables to a _.env_ file in the root**
+**Add your own environment variables to a _.env_ file in the root directory**
 
+From the root directory :
 ```env
-DATABASE_URL=YOUR_CONNECTION_STRING_HERE
-PORT=3000
+touch .env;
+echo "DATABASE_URL=YOUR_CONNECTION_STRING_HERE
+PORT=3000" >> .env;
 ```
+> ***Make sure to add your own connection string!***
 
 **Start development environments**
 
