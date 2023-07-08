@@ -28,11 +28,11 @@ cd ..;
 cd client && npm i;
 cd ..;
 cd database && npm i;
+cd ..;
 ```
 
-**Add your own environment variables to a _.env_ file in the root directory**
+**Add your own environment variables to a _.env_ file**
 
-From the root directory :
 ```env
 touch .env;
 echo "DATABASE_URL=YOUR_CONNECTION_STRING_HERE
@@ -42,12 +42,14 @@ PORT=3000" >> .env;
 
 **Start development environments**
 
-Run both commands from the root directory
+Run both commands from the **root directory**, each with their own dedicated terminal 
 
+*(Terminal for server)*
 ```bash
 cd server && npm run dev
 ```
 
+*(Terminal for client)*
 ```bash
 cd client && npm run dev
 ```
