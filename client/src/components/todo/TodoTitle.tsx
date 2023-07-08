@@ -33,7 +33,7 @@ export default function TodoTitle({
   return (
     <div className="flex gap-2 items-center">
       <input
-        className="hover:outline hover:outline-2 hover:outline-red-500 hover:rounded-md"
+        className="hover:bg-red-500 hover:rounded-md"
         id={`checkbox_id ${todo.id}`}
         type="checkbox"
         onChange={handleChange}
@@ -52,7 +52,7 @@ export default function TodoTitle({
       )}
       <button
         onClick={handleClick}
-        className="opacity-40 hover:opacity-100 hover:scale-110 active:opacity-100"
+        className={`${updateTitle && 'bg-green-400 border-white border-2 rounded-md animate-pulse opacity-100'} opacity-40 hover:opacity-100 hover:scale-110 active:opacity-100`}
       >
         <img src={EditIcon} alt="edit button" />
       </button>

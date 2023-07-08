@@ -44,7 +44,7 @@ export default function TodoDeadline({ todo }: Props) {
   }
 
   return (
-    <div className="flex gap-2 items-start">
+    <div className="flex flex-wrap gap-2 items-start">
       Due{' '}
       <span className="font-semibold">
         {updating ? (
@@ -73,7 +73,7 @@ export default function TodoDeadline({ todo }: Props) {
         )}
       </span>
       <button
-        className="opacity-40 hover:opacity-100 hover:scale-110 focus:opacity-100"
+        className={`${updating && 'bg-green-400 border-white border-2 rounded-md animate-pulse opacity-100'} opacity-40 hover:opacity-100 hover:scale-110 focus:opacity-100`}
         onClick={handleClick}
       >
         <img src={EditIcon} alt="edit button" />
