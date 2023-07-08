@@ -1,7 +1,5 @@
 # Task Manager
 
----
-
 ## Getting Started
 
 **Make a directory and switch into it**
