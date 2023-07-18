@@ -39,7 +39,15 @@ touch .env;
 echo "DATABASE_URL=YOUR_CONNECTION_STRING_HERE
 PORT=3000" >> .env;
 ```
-> ***Make sure to add your own connection string!***
+> ***Make sure to update this file with your own connection string!***
+
+**Download CA certificate**
+
+CockroachDB will guide you on this step during the initialization of your cloud cluster. This feature is an additional layer of security that is required to access your database. The terminal command will look similar to this format
+
+```bash
+curl --create-dirs -o $HOME/.postgresql/root.crt <your-cert-url-here>
+```
 
 **Start development environments**
 
