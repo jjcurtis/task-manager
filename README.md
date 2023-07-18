@@ -34,6 +34,7 @@ cd ..;
 **Add your own environment variables to a _.env_ file**
 
 ```env
+cd server;
 touch .env;
 echo "DATABASE_URL=YOUR_CONNECTION_STRING_HERE
 PORT=3000" >> .env;
